@@ -12,7 +12,7 @@ import { Country } from '../../interfaces/pais.interface';
 })
 export class VerPaisComponent implements OnInit {
 
-  pais!: Country;
+  paises : Country[] = [];
 
   constructor(private activatedRoute: ActivatedRoute, private paisService: PaisService) { }
 
@@ -23,7 +23,7 @@ export class VerPaisComponent implements OnInit {
       switchMap( ({id}) => this.paisService.getPaisPorAlpha(id)),
       tap(console.log)
     )
-    .subscribe( pais => this.pais = pais);
+    .subscribe( paises => this.paises = paises);
 
     // this.activatedRoute.params
     // .subscribe(({id}) => {
